@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     callPage(url){
-      api.get(url+'.html')
+      api.get(url)
         .then(res => {
           // console.log(res);
           const postCon = res.data;
