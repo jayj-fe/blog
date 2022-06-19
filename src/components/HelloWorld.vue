@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     callPage(url){
-      api.get(url)
+      api.get(url+'.html')
         .then(res => {
           const postCon = res.data;
           const fileContent = postCon.slice(postCon.indexOf('---', 2));
