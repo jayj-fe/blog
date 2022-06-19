@@ -22,11 +22,19 @@ export default {
     callPage(url){
       api.get(url+'.html')
         .then(res => {
-          console.log(res);
+          // console.log(res);
           const postCon = res.data;
-          console.log(postCon);
-          const fileContent = postCon.slice(postCon.indexOf('---', 2));
-          console.log(fileContent);
+          // console.log(postCon);
+
+          let fileContent = '';
+
+          if(postCon.indexOf('---', 2) !== -1){
+            fileContent = postCon.slice(postCon.indexOf('---', 2));
+          }else{
+            fileContent = postCon;
+          }
+
+          // console.log(fileContent);
 
           const converter = new showdown.Converter();
           const postHTML = converter.makeHtml(fileContent);
