@@ -1,69 +1,34 @@
-import api from '@/api'
-import { FETCH_POST_LIST, FETCH_POST, SET_ACCESS_TOKEN, SET_MY_INFO, DESTORY_ACCESS_TOKEN, DESTORY_MY_INFO, UPDATE_COMMENT, EDIT_COMMENT, DELETE_COMMENT } from './mutations-types'
+import api from '@/api';
+import showdown from "showdown";
+import { TOGGLE_HEADER, FETCH_POST_LIST, FETCH_CATEGORIES_LIST } from './mutations-types';
 
 export default {
-  fetchPostList ({ commit }) {
-    return api.get('/posts')
-      .then(res => {
-        commit(FETCH_POST_LIST, res.data)
-      })
-      .catch(error => {
-        console.log(error.message)
-      })
+  toggleHeader({ commit }, payload){
+    commit(TOGGLE_HEADER, payload)
   },
-  fetchPost ({ commit }, postId) {
-    return api.get(`/posts/${postId}`)
-      .then(res => {
-        commit(FETCH_POST, res.data)
-      })
+  fetchPostList ({ commit }, payload) {
+    let url = '/blogAPI/'+payload+'list.json';
+    return api.get(url)
+    .then(res => {
+      res.data.postlist.forEach( el => {
+        el.date = el.date.slice(0, 10);
+        const converter = new showdown.Converter();
+        el.con = converter.makeHtml(el.con).replace(/<[^>]*>?/g, '');
+        el.con = el.con.replaceAll('\\&lt;', '<')
+      });
+      commit(FETCH_POST_LIST, res.data.postlist)
+    })
+    .catch(error => {
+      console.log(error)
+    })
   },
-  signin ({ commit }, payload) {
-    const { email, password } = payload
-    return api.post('/auth/signin', { email, password })
-      .then(res => {
-        // alert('회원가입이 완료되었습니다')
-        // this.$router.push('/')
-        const { accessToken } = res.data
-        commit(SET_ACCESS_TOKEN, accessToken)
-
-        return api.get('/users/me')
-      }).then(res => {
-        commit(SET_MY_INFO, res.data)
-      })
-      .catch(error => {
-        console.log(error.message)
-      })
-  },
-  signinByToken ({ commit }, token) {
-    commit(SET_ACCESS_TOKEN, token)
-    return api.get('/users/me')
-      .then(res => {
-        commit(SET_MY_INFO, res.data)
-      })
-  },
-  signout ({ commit }) {
-    commit(DESTORY_MY_INFO)
-    commit(DESTORY_ACCESS_TOKEN)
-  },
-  createComment ({ commit, state }, comment) {
-    const postId = state.post.id
-    return api.post(`/posts/${postId}/comments`, { contents: comment })
-      .then(res => {
-        commit(UPDATE_COMMENT, res.data)
-      })
-  },
-  editComment ({ commit, state }, { commentId, comment }) {
-    const postId = state.post.id
-    return api.put(`/posts/${postId}/comments/${commentId}`, { contents: comment })
-      .then(res => {
-        commit(EDIT_COMMENT, res.data)
-      })
-  },
-  deleteComment ({ commit, state }, commentId) {
-    const postId = state.post.id
-    return api.delete(`/posts/${postId}/comments/${commentId}`)
-      .then(res => {
-        commit(DELETE_COMMENT, commentId)
-      })
+  fetchCategoriesList ({ commit }) {
+    return api.get('/blogAPI/categorieslist.json')
+    .then(res => {
+      commit(FETCH_CATEGORIES_LIST, res.data.categorieslist)
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 }

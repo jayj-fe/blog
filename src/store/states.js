@@ -1,6 +1,5 @@
 export default {
-  posts: [],
-  post: null,
-  accessToken: '',
-  me: null
+  isActiveHeader : false,
+  currentPosts : null,
+  categoriesList : null
 }

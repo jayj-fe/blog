@@ -1,24 +1,30 @@
-# blog-renewal
+# Blog Renewal
 
-## Project setup
-```
-npm install
-```
+## Technology Stack
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+- Vue.js
 
-### Compiles and minifies for production
-```
-npm run build
-```
+<br>
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Page
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Main
+- Categories
+- Archive
+- View
+- About
+
+<br>
+
+## Layout
+
+- Header
+- Footer
+- Categories
+- List
+- View
+
+<br>
+
+## URL
+[jayj-fe.github.io/memo-application](https://jayj-fe.github.io/Memo-Application/)

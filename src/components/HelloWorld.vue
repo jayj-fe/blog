@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import api from '../api/index.js';
 import showdown from "showdown";
+import api from '../api/index.js';
 
 export default {
   name: 'HelloWorld',
@@ -67,8 +67,8 @@ export default {
         console.log('모든 리스트 출력**********');
         console.log(htmlCate);
         console.log('html 타입 출력**********');
-
-        this.callPage('/blogAPI'+htmlCate[0].url)
+        console.log('/blogAPI'+htmlCate[1].url);
+        this.callPage('/blogAPI'+htmlCate[1].url)
       })
       .catch(error => {
         console.log(error.message)

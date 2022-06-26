@@ -1,0 +1,323 @@
+@charset "UTF-8";
+
+.slide-fade-enter {
+	transform: translateX(100px);
+	opacity: 0;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+	transition: all 0.5s ease;
+}
+  
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+	transform: translateX(-100px);
+	opacity: 0;
+}
+
+.app-header{
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	height:50px;
+	padding:10px;
+	overflow:hidden;
+	background:#fff;
+	box-shadow:0 0 3px rgba(0, 0, 0, 0.2);
+
+	&__mobile-btn{
+		font-size:20px;
+	}
+
+	&__mobile-menu__bg{
+		position:fixed;
+		top:0;
+		left:0;
+		bottom:0;
+		right:0;
+		background:rgba(0,0,0,0.4);
+		z-index:8;
+	}
+
+	aside{
+		position:fixed;
+		top:0;
+		left:0;
+		width:55vw;
+		height:100vh;
+		background:#fff;
+		padding:20px;
+		z-index:10;
+
+		h1{
+			padding-bottom:20px;
+			margin-bottom:20px;
+
+			button{
+				font-family: $font-BlackHan;
+				font-size:24px;
+				letter-spacing:1px;
+			}
+		}
+
+		nav{
+			.app-header__gnb{
+				&>li{
+					margin-bottom:13px;
+					text-align:left;
+	
+					a,button{
+						display:inline-block;
+						color:#777;
+						font-size:15px;
+
+						&:hover{
+							color:#000;
+							text-decoration:underline;
+							font-weight:700;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.app-categories{
+	h3{
+		position:relative;
+		text-align:left;
+		margin-bottom:15px;
+
+		span{
+			position:relative;
+			display:inline-block;
+			background:#fff;
+			padding-right:10px;
+			font-size:15px;
+			line-height:22px;
+			font-weight:500;
+		}
+
+		&:before{
+			content:"";
+			position:absolute;
+			top:12px;
+			left:0;
+			right:0;
+			height:1px;
+			background:#000;
+		}
+	}
+
+	ul{
+		li{
+			margin-bottom:10px;
+			text-align:left;
+			color:#888;
+
+			a,button{
+				display:inline-block;
+				color:#aaa;
+				font-size:14px;
+
+				&:hover{
+					color:#000;
+					text-decoration:underline;
+					font-weight:700;
+				}
+
+				span{
+					font-size:11px;
+				}
+			}
+
+		}
+	}
+}
+
+.app-con{
+	padding:70px 20px;
+	min-height:calc( 100vh - 120px );
+	overflow:hidden;
+}
+
+.app-footer{
+	background:#333;
+	padding:15px;
+	min-height:120px;
+
+	a,button{
+		display:inline-block;
+		color:#fff;
+		
+		&:hover{
+			color:#888;
+		}
+	}
+	
+	h1{
+		margin-bottom:10px;
+
+		button{
+			font-family: $font-BlackHan;
+			font-size:14px;
+			letter-spacing:1px;
+		}
+	}
+
+	nav{
+		ul{
+			li{
+				margin-bottom:7px;
+				a{
+					font-size:14px;
+
+					svg{
+						vertical-align:middle;
+						font-size:18px;
+						margin-right:5px;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.app{
+		display:flex;
+		flex-wrap:wrap;
+		justify-content:space-between;
+		width:100%;
+	}
+		
+	.app-header{
+		position:relative;
+		top:initial;
+		left:initial;
+		right:initial;
+		width:260px;
+		height:auto;
+		min-height:calc( 100vh - 102px );
+		padding:15px;
+		background:#efefef;
+		box-shadow:none;
+
+		&__mobile-btn{
+			display:none;
+		}
+
+		&__mobile-menu__bg{
+			display:none;
+		}
+
+		aside{
+			position:relative;
+			top:initial;
+			left:initial;
+			width:100%;
+			height:auto;
+			background:#efefef;
+			padding:20px;
+
+			h1{
+				button{
+					font-size:26px;
+				}
+			}
+
+			nav{
+				.app-header__gnb{
+					&>li{
+						margin-bottom:15px;
+		
+						a,button{
+							font-size:16px;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	.app-categories{
+		h3{
+			margin-bottom:20px;
+
+			span{
+				background:#efefef;
+				padding-right:15px;
+				font-size:16px;
+			}
+		}
+
+		ul{
+			li{
+				margin-bottom:10px;
+
+				a,button{
+					font-size:15px;
+
+					span{
+						font-size:13px;
+					}
+				}
+
+			}
+		}
+	}
+
+	.app-con{
+		width:calc( 100% - 260px );
+		padding:30px;
+	}
+		
+	.app-footer{
+		width:100%;
+		padding:15px;
+		min-height:120px;
+
+		a,button{
+			display:inline-block;
+			color:#fff;
+			
+			&:hover{
+				color:#888;
+			}
+		}
+		
+		h1{
+			margin-bottom:10px;
+
+			button{
+				font-family: $font-BlackHan;
+				font-size:14px;
+				letter-spacing:1px;
+			}
+		}
+
+		nav{
+			ul{
+				li{
+					margin-bottom:7px;
+					a{
+						font-size:14px;
+
+						svg{
+							vertical-align:middle;
+							font-size:18px;
+							margin-right:5px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media all and (min-width:1150px) {
+	
+}

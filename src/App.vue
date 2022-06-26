@@ -1,26 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="app">
+    <router-view name="header"/>
+    <router-view />
+		<router-view name="footer"/>
+    
+<!--       
+      <router-view v-slot="{ Component }">
+        <transition name="slide-fade">
+        <component :is="Component" />
+        </transition> 
+      </router-view> -->
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import { mapActions } from 'vuex';
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+      return {
+          width: 0
+      }
+  },
+  methods: {
+    ...mapActions([ 'fetchPostList', 'toggleHeader' ]),
+    handleResize() {
+        this.width = window.innerWidth;
+
+        if( this.width >= 768){
+          this.toggleHeader(true);
+        }else{
+          this.toggleHeader(false);
+        }
+    }
+  },
+  mounted(){
+    this.fetchPostList('post');
+    window.addEventListener('resize', this.handleResize);
+    this.handleResize();
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
