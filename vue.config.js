@@ -10,7 +10,8 @@ module.exports = defineConfig({
       headers: { "Access-Control-Allow-Origin": "*" }
     }
   },
-  publicPath: process.env.NODE_ENV === 'production' ? '/blogRenewalTest/' : '/',
+  // publicPath: process.env.NODE_ENV === 'production' ? '/blogRenewalTest/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   outputDir : 'docs',
 	css: {
 		loaderOptions: {
