@@ -41,6 +41,38 @@ const routes = [
     path: '/test',
     name: 'HelloWorld',
     component: HelloWorld,
+  },
+  {
+    path: '/blogRenewalTest/',
+    name: 'Home',
+    components: {
+      header: AppHeader,
+      default: ListPage,
+      footer: AppFooter
+    }
+  },
+  {
+    path: '/blogRenewalTest/home',
+    name: 'ListPage',
+    components: {
+      header: AppHeader,
+      default: ListPage,
+      footer: AppFooter
+    }
+  },
+  {
+    path: '/blogRenewalTest/about',
+    name: 'AboutPage',
+    components: {
+      header: AppHeader,
+      default: AboutPage,
+      footer: AppFooter
+    }
+  },
+  {
+    path: '/blogRenewalTest/test',
+    name: 'HelloWorld',
+    component: HelloWorld,
   }
 ];
 
