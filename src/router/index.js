@@ -13,7 +13,11 @@ const routes = [
   {
     path: '/',
     name: 'ListPage',
-    component: ListPage,
+    components: {
+      header: AppHeader,
+      default: ListPage,
+      footer: AppFooter
+    }
   },
   {
     path: '/home',
