@@ -12,7 +12,7 @@ import HelloWorld from '@/components/HelloWorld';
 const routes = [
   {
     path: '/',
-    name: 'ListPage',
+    name: 'Home',
     components: {
       header: AppHeader,
       default: ListPage,
