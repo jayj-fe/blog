@@ -16,7 +16,7 @@ const routes = [
     component: ListPage,
   },
   {
-    path: '/home',
+    path: '/blogRenewalTest/home',
     name: 'ListPage',
     components: {
       header: AppHeader,
@@ -25,7 +25,7 @@ const routes = [
     }
   },
   {
-    path: '/about',
+    path: '/blogRenewalTest/about',
     name: 'AboutPage',
     components: {
       header: AppHeader,
@@ -34,7 +34,7 @@ const routes = [
     }
   },
   {
-    path: '/test',
+    path: '/blogRenewalTest/test',
     name: 'HelloWorld',
     component: HelloWorld,
   }
