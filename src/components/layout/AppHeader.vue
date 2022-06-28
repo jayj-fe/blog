@@ -43,8 +43,7 @@ export default {
         this.fetchPostList('post');
       }
       if(this.$route.name !== _target){
-        this.$router.push({ name: _target })
-        // this.$router.push('home');
+        this.$router.push({ name: _target });
       }
     }
   }
