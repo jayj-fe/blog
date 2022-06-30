@@ -4,44 +4,13 @@ import AppHeader from '@/components/layout/AppHeader';
 import AppFooter from '@/components/layout/AppFooter';
 
 import ListPage from '../pages/ListPage';
+import ViewPage from '../pages/ViewPage';
 import AboutPage from '../pages/AboutPage';
 
 /* test */
 import HelloWorld from '@/components/HelloWorld';
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    components: {
-      header: AppHeader,
-      default: ListPage,
-      footer: AppFooter
-    }
-  },
-  {
-    path: '/home',
-    name: 'ListPage',
-    components: {
-      header: AppHeader,
-      default: ListPage,
-      footer: AppFooter
-    }
-  },
-  {
-    path: '/about',
-    name: 'AboutPage',
-    components: {
-      header: AppHeader,
-      default: AboutPage,
-      footer: AppFooter
-    }
-  },
-  {
-    path: '/test',
-    name: 'HelloWorld',
-    component: HelloWorld,
-  },
   {
     path: '/blogRenewalTest/',
     name: 'Home',
@@ -59,6 +28,16 @@ const routes = [
       default: ListPage,
       footer: AppFooter
     }
+  },
+  {
+    path: '/blogRenewalTest/posts/:postURL',
+    name: 'ViewPage',
+    components: {
+      header: AppHeader,
+      default: ViewPage,
+      footer: AppFooter
+    },
+    props: true
   },
   {
     path: '/blogRenewalTest/about',

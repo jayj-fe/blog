@@ -7,10 +7,10 @@ import './assets/scss/_index.scss';
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-import { faBars, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faEnvelope, faLink, faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-library.add(faBars, faEnvelope, faGithub);
+library.add(faBars, faEnvelope, faLink, faAngleDown, faAngleUp, faGithub);
 
 const app = createApp(App);
 app.use(router);
