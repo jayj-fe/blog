@@ -1,6 +1,7 @@
 <template>
   <div class="app-list">
     <ul class="app-list__container">
+      <transition-group name="fade">
       <li v-for="postItem in currentPosts" v-bind:key="postItem" class="list-item">
         <router-link class="list-item__thumnail" :to="{name: 'ViewPage', params: { postURL : postItem.url }}">
           <img v-bind:src=postItem.img alt="">
@@ -14,6 +15,7 @@
         <p class="list-item__date">{{ postItem.date }}</p>
         <p class="list-item__con">{{ postItem.con }}</p>
       </li>
+      </transition-group>
     </ul>
   </div>
 </template>
