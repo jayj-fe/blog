@@ -8,7 +8,9 @@ export default {
     state.currentPosts = posts;
   },
   [FETCH_POST_VIEW] (state, posts) {
-    state.currentView = posts;
+    state.currentViewTitle = posts.title;
+    state.currentViewDate = posts.date;
+    state.currentViewContent = posts.content;
   },
   [FETCH_CATEGORIES_LIST] (state, categoriesList) {
     state.categoriesList = categoriesList;

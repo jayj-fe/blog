@@ -6,6 +6,7 @@ import AppFooter from '@/components/layout/AppFooter';
 import ListPage from '@/pages/ListPage';
 import ViewPage from '@/pages/ViewPage';
 import AboutPage from '@/pages/AboutPage';
+import ArchivePage from '@/pages/ArchivePage';
 
 const routes = [
   {
@@ -35,6 +36,15 @@ const routes = [
       footer: AppFooter
     },
     props: true
+  },
+  {
+    path: '/blogRenewalTest/archive',
+    name: 'ArchivePage',
+    components: {
+      header: AppHeader,
+      default: ArchivePage,
+      footer: AppFooter
+    }
   },
   {
     path: '/blogRenewalTest/about',

@@ -1,6 +1,8 @@
 export default {
   isActiveHeader : false,
   currentPosts : null,
-  currentView : null,
+  currentViewTitle : null,
+  currentViewDate : null,
+  currentViewContent : null,
   categoriesList : null
 }

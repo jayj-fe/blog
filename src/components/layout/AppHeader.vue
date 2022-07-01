@@ -10,7 +10,7 @@
         <nav>
           <ul class="app-header__gnb">
             <li><button type="button" v-on:click="routerMoveEvent('ListPage')">HOME</button></li>
-            <li><button type="button" v-on:click="routerMoveEvent('ListPage')">ARCHIVE</button></li>
+            <li><button type="button" v-on:click="routerMoveEvent('ArchivePage')">ARCHIVE</button></li>
             <li><button type="button" v-on:click="routerMoveEvent('AboutPage')">ABOUT</button></li>
           </ul>
           <app-categories />
