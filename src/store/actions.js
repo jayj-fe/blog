@@ -24,55 +24,9 @@ export default {
   },
   fetchPostView ({ commit }, payload) {
     let url = '/blogAPI'+payload;
-    // console.log(url);
-
-    // '/blogRenewalTest/' : '/'
-    const assetUrl = location.hostname === "localhost" ? 'http://localhost:9000/blogAPI' : '/blogAPI';
-    // console.log(assetUrl);
-    
     return api.get(url)
     .then(res => {
-      
-      const postCon = res.data;
-      // console.log(res.data);
-
-      let fileContent = '';
-
-      const sliceIdx = postCon.indexOf('---', 2);
-      const postInfoText = postCon.slice(postCon.indexOf('title'), sliceIdx).replace(/(\r\n|\n|\r)/gm, "::");
-      const postInfoArr = postInfoText.split('::');
-      const fileInfoObj = postInfoArr.map( (ele) => {
-          const arr = ele.split(': ');
-          return arr[1]
-      });
-
-      // 날짜 타입으로 변환하기
-      const postDate = fileInfoObj[2].slice(0, 10);
-
-      if(postCon.indexOf('---', 2) !== -1){
-          fileContent = postCon.slice(sliceIdx);
-      }else{
-          fileContent = postCon;
-      }
-
-      const converter = new showdown.Converter();
-      let postHTML = converter.makeHtml(fileContent);
-      
-      // filter
-      // console.log(postHTML);
-      postHTML = postHTML.replaceAll('/assets/', assetUrl+'/assets/');
-      // let aTags = postHTML.querySelect
-      // console.log(fileInfoObj[0]);
-      const postObj = {
-        'title' : fileInfoObj[0],
-        'author' : fileInfoObj[1],
-        'date' : postDate,
-        'content' : postHTML
-      }
-
-      // console.log(postObj);
-
-      commit(FETCH_POST_VIEW, postObj);
+      commit(FETCH_POST_VIEW, res.data);
     })
     .catch(error => {
       console.log(error)

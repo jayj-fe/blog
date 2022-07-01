@@ -1,18 +1,74 @@
 <template>
     <div class="app-con app-archive-page">
-        app-archive-page
-        {{ currentPosts }}
+        <article v-for="item, idx in currentPosts[0]" v-bind:key="item">
+            <h2>{{ item }}</h2>
+            <ul>
+                <li v-for="item in currentPosts[1][idx]" v-bind:key="item">
+                    <b>{{ item.date }}</b>
+                    <router-link :to="{name: 'ViewPage', params: { postURL : item.url }}">
+                        {{ item.title }}
+                    </router-link>
+                </li>
+            </ul>
+        </article>
     </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
 import "@/assets/scss/archive.scss";
+import { mapActions } from 'vuex';
 export default {
     name: 'ArchivePage',
 	computed: {
-		...mapState([ 'currentPosts' ]),
-	}
+		currentPosts() {
+            const postList = this.$store.state.currentPosts;
+            const yearArr = [];
+            const yearDataArr = [];
+
+            if(postList !== null){
+                // console.log(postList);
+                
+                postList.forEach( el => {
+                    const currentYear = el.date.slice(0, 4);
+                    const yearArrIdx = yearArr.indexOf(currentYear);
+                    
+                    if(yearArrIdx === -1 ){
+                        // console.log(1);
+                        yearArr.push(currentYear);
+                        yearDataArr.push(
+                            [
+                                {
+                                    'title' : el.title,
+                                    'date' : el.date,
+                                    'url' : el.url
+                                }
+                            ]
+                        )
+                    }else{
+                        // console.log(2);
+                        yearDataArr[yearArrIdx].push(
+                            {
+                                'title' : el.title,
+                                'date' : el.date,
+                                'url' : el.url
+                            }
+                        )
+                    }
+                });
+
+                // console.log(yearArr);
+                // console.log(yearDataArr);
+            }
+            
+            return [yearArr, yearDataArr];
+        }
+	},
+    methods: {
+        ...mapActions([ 'fetchPostList' ])
+    },
+    mounted() {
+        this.fetchPostList('post');
+    },
 }
 </script>
 
