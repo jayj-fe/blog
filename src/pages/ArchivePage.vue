@@ -1,7 +1,9 @@
 <template>
     <div class="app-con app-archive-page">
+        <h2>Archive</h2>
+
         <article v-for="item, idx in currentPosts[0]" v-bind:key="item">
-            <h2>{{ item }}</h2>
+            <h3>{{ item }}</h3>
             <ul>
                 <li v-for="item in currentPosts[1][idx]" v-bind:key="item">
                     <b>{{ item.date }}</b>

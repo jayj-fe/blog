@@ -1,15 +1,15 @@
 <template>
   <div class="app">
     <router-view name="header"/>
-    <router-view />
+    <router-view v-slot="{ Component }">
+        <transition name="fade">
+          <component :is="Component" />
+        </transition> 
+    </router-view>
 		<router-view name="footer"/>
     
-<!--       
-      <router-view v-slot="{ Component }">
-        <transition name="slide-fade">
-        <component :is="Component" />
-        </transition> 
-      </router-view> -->
+
+      
   </div>
 </template>
 

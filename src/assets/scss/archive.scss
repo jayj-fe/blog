@@ -1,8 +1,16 @@
 .app-archive-page{
+    h2{
+        font-size:30px;
+        font-weight:500;
+        color:#000;
+        border-bottom:1px solid #999;
+        margin-bottom:30px;
+    }
+
     article{
         margin-bottom:50px;
 
-        h2{
+        h3{
             position:relative;
             font-size:1.8rem;
             font-weight:500;
@@ -65,7 +73,7 @@
 @media all and (min-width:768px) {
     .app-archive-page{
         article{
-            h2{
+            h3{
                 font-size:28px;
                 padding-left:30px;
                 padding-bottom:5px;
@@ -94,6 +102,15 @@
                     }
                 }
             }
+        }
+    }
+}
+
+@media all and (min-width:900px) {
+    .app-archive-page{
+        h2{
+            font-size:35px;
+            padding-bottom:10px;
         }
     }
 }
