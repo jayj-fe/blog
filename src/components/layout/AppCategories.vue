@@ -19,7 +19,7 @@ export default {
   methods: {
     ...mapActions(['fetchCategoriesList', 'fetchPostList', 'toggleHeader']),
     routerMoveEvent : function(i){
-      if( window.innerWidth <= 768){
+      if( window.innerWidth <= 1024){
         this.toggleHeader(false);
       }
 

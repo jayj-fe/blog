@@ -25,11 +25,16 @@ export default {
   fetchPostView ({ commit }, payload) {
     let url = '/blogAPI'+payload;
     // console.log(url);
+
+    // '/blogRenewalTest/' : '/'
+    const assetUrl = location.hostname === "localhost" ? 'http://localhost:9000/blogAPI' : '/blogAPI';
+    console.log(assetUrl);
+    
     return api.get(url)
     .then(res => {
       
       const postCon = res.data;
-      console.log(res.data);
+      // console.log(res.data);
 
       let fileContent = '';
 
@@ -40,7 +45,13 @@ export default {
       }
 
       const converter = new showdown.Converter();
-      const postHTML = converter.makeHtml(fileContent);
+      let postHTML = converter.makeHtml(fileContent);
+      
+      // filter
+      // console.log(postHTML);
+      postHTML = postHTML.replaceAll('/assets/', assetUrl+'/assets/');
+      // let aTags = postHTML.querySelect
+      // console.log(postHTML);
 
       commit(FETCH_POST_VIEW, postHTML);
     })

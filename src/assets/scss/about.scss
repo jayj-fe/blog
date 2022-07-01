@@ -105,7 +105,7 @@
     }
 }
 
-@media all and (min-width:1150px) {
+@media all and (min-width:900px) {
     .app-about-page{
         h2{
             font-size:35px;
@@ -113,6 +113,8 @@
         }
     
         .career{
+            overflow:hidden;
+
             margin-top:40px;
     
             h3{
@@ -132,9 +134,17 @@
                     }
                 }
             }
+            .company{
+                float:left;
+                width:250px;
+            }
     
             &-info{
-                margin-top:15px;
+                float:right;
+                width:calc( 100% - 300px );
+
+                margin-top:0;
+                margin-bottom:15px;
     
                 h4{
                     font-size:16px;

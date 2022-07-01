@@ -3,12 +3,9 @@ import { createWebHistory, createRouter } from "vue-router";
 import AppHeader from '@/components/layout/AppHeader';
 import AppFooter from '@/components/layout/AppFooter';
 
-import ListPage from '../pages/ListPage';
-import ViewPage from '../pages/ViewPage';
-import AboutPage from '../pages/AboutPage';
-
-/* test */
-import HelloWorld from '@/components/HelloWorld';
+import ListPage from '@/pages/ListPage';
+import ViewPage from '@/pages/ViewPage';
+import AboutPage from '@/pages/AboutPage';
 
 const routes = [
   {
@@ -47,11 +44,6 @@ const routes = [
       default: AboutPage,
       footer: AppFooter
     }
-  },
-  {
-    path: '/blogRenewalTest/test',
-    name: 'HelloWorld',
-    component: HelloWorld,
   }
 ];
 

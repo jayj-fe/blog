@@ -19,14 +19,19 @@
         </li>
       </ul>
     </nav>
+    <app-quick />
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import AppQuick from './AppQuick.vue';
 
 export default {
   name: 'AppFooter',
+  components :{
+    AppQuick
+  },
   methods: {
     ...mapActions([ 'toggleHeader' ]),
     routerMoveEvent : function(_target){

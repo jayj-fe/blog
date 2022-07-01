@@ -3,8 +3,10 @@
     <h2>Career</h2>
 
     <article class="career">
-      <h3>위트플러스.</h3>
-      <p><span>UI Developer</span>2017. 02 ~ 현재</p>
+      <article class="company">
+        <h3>위트플러스.</h3>
+        <p><span>UI Developer</span>2017. 02 ~ 현재</p>
+      </article>
 
       <article class="career-info">
         <h4>담당업무</h4>
@@ -52,8 +54,10 @@
     </article>
 
     <article class="career">
-      <h3>시도우.</h3>
-      <p><span>UI Developer</span>2015. 11 ~ 2016. 11</p>
+      <article class="company">
+        <h3>시도우.</h3>
+        <p><span>UI Developer</span>2015. 11 ~ 2016. 11</p>
+      </article>
       
       <article class="career-info">
         <h4>담당업무</h4>

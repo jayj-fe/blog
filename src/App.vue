@@ -27,7 +27,7 @@ export default {
     handleResize() {
         this.width = window.innerWidth;
 
-        if( this.width >= 768){
+        if( this.width >= 1024){
           this.toggleHeader(true);
         }else{
           this.toggleHeader(false);
