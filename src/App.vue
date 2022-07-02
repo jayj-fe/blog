@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <router-view name="header"/>
-    <router-view v-slot="{ Component }" :key="$route.fullPath">
+    <router-view v-slot="{ Component }" :key="$route.fullPath" >
         <transition name="fade">
           <component :is="Component" />
         </transition> 
