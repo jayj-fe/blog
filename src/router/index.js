@@ -16,6 +16,9 @@ const routes = [
       header: AppHeader,
       default: ListPage,
       footer: AppFooter
+    },
+    meta: {
+      title : 'Home / Jay.J'
     }
   },
   {
@@ -26,7 +29,10 @@ const routes = [
       default: ListPage,
       footer: AppFooter
     },
-    props: true
+    props: true,
+    meta: {
+      title : 'Posts / Jay.J'
+    }
   },
   {
     path: '/blogRenewalTest/posts/:postURL',
@@ -36,7 +42,10 @@ const routes = [
       default: ViewPage,
       footer: AppFooter
     },
-    props: true
+    props: true,
+    meta: {
+      title : 'Post View / Jay.J'
+    }
   },
   {
     path: '/blogRenewalTest/archive',
@@ -45,6 +54,9 @@ const routes = [
       header: AppHeader,
       default: ArchivePage,
       footer: AppFooter
+    },
+    meta: {
+      title : 'Archive / Jay.J'
     }
   },
   {
@@ -54,6 +66,9 @@ const routes = [
       header: AppHeader,
       default: AboutPage,
       footer: AppFooter
+    },
+    meta: {
+      title : 'About / Jay.J'
     }
   }
 ];
@@ -61,6 +76,11 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes
+});
+
+const DEFAULT_TITLE = 'Jay.J';
+router.afterEach((to) => {
+    document.title = to.meta.title || DEFAULT_TITLE;
 });
 
 export default router;
