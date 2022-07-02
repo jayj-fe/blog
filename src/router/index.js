@@ -19,13 +19,14 @@ const routes = [
     }
   },
   {
-    path: '/blogRenewalTest/home',
+    path: '/blogRenewalTest/:postCate',
     name: 'ListPage',
     components: {
       header: AppHeader,
       default: ListPage,
       footer: AppFooter
-    }
+    },
+    props: true
   },
   {
     path: '/blogRenewalTest/posts/:postURL',

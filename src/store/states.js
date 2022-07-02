@@ -7,8 +7,6 @@ export default {
     'date' :  null,
     'content' :  null
   },
-  currentViewTitle : null,
-  currentViewDate : null,
-  currentViewContent : null,
+  archiveList : null,
   categoriesList : null
 }

@@ -1,15 +1,12 @@
 <template>
   <div class="app">
     <router-view name="header"/>
-    <router-view v-slot="{ Component }">
+    <router-view v-slot="{ Component }" :key="$route.fullPath">
         <transition name="fade">
           <component :is="Component" />
         </transition> 
     </router-view>
-		<router-view name="footer"/>
-    
-
-      
+		<router-view name="footer"/>  
   </div>
 </template>
 
@@ -23,7 +20,7 @@ export default {
       }
   },
   methods: {
-    ...mapActions([ 'fetchPostList', 'toggleHeader' ]),
+    ...mapActions([ 'toggleHeader' ]),
     handleResize() {
         this.width = window.innerWidth;
 
@@ -35,7 +32,6 @@ export default {
     }
   },
   mounted(){
-    this.fetchPostList('post');
     window.addEventListener('resize', this.handleResize);
     this.handleResize();
   }

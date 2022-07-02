@@ -5,13 +5,26 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import AppList from '@/components/post/AppList';
 
 export default {
   name: 'ListPage',
+  props: {
+      postCate: {
+          type: String,
+          default: "post",
+      }
+  },
   components :{
     AppList
-  }
+  },
+  methods: {
+    ...mapActions([ 'fetchPostList' ]),
+  },
+  mounted() {
+      this.fetchPostList(this.postCate);
+  },
 }
 </script>
 

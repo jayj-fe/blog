@@ -22,12 +22,8 @@ export default {
       if( window.innerWidth <= 1024){
         this.toggleHeader(false);
       }
-
-      this.fetchPostList(i);
-
-      if(this.$route.name !== 'ListPage'){
-        this.$router.push('home');
-      }
+      
+      this.$router.push({ name: 'ListPage', params: { postCate: i } });
     }
   },
   mounted(){

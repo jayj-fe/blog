@@ -1,6 +1,6 @@
 import api from '@/api';
 import showdown from "showdown";
-import { TOGGLE_HEADER, FETCH_POST_LIST, FETCH_POST_VIEW, FETCH_CATEGORIES_LIST } from './mutations-types';
+import { TOGGLE_HEADER, FETCH_POST_LIST, FETCH_ARCHIVE_LIST, FETCH_POST_VIEW, FETCH_CATEGORIES_LIST } from './mutations-types';
 
 export default {
   toggleHeader({ commit }, payload){
@@ -17,6 +17,16 @@ export default {
         el.con = el.con.replaceAll('\\&lt;', '<')
       });
       commit(FETCH_POST_LIST, res.data.postlist)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+  },
+  fetchArchiveList ({ commit }) {
+    let url = '/blogAPI/postlist.json';
+    return api.get(url)
+    .then(res => {
+      commit(FETCH_ARCHIVE_LIST, res.data.postlist)
     })
     .catch(error => {
       console.log(error)
