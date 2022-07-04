@@ -23,6 +23,7 @@ export default {
         this.toggleHeader(false);
       }
       
+      this.$store.state.currentPosts = null;
       this.$router.push({ name: 'ListPage', params: { postCate: i } });
     }
   },

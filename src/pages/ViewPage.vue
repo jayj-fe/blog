@@ -29,7 +29,7 @@ export default {
 
             if(postCon.title !== null){
                 const assetUrl = location.hostname === "localhost" ? 'http://localhost:9000/blogAPI' : '/blogAPI';
-                
+
                 if(location.hostname === "localhost"){
                     let fileContent = '';
 
@@ -65,6 +65,11 @@ export default {
                 }else{
                     console.log(postCon.title);
 
+                    const iframe = document.createElement('iframe');
+
+                    iframe.src = this.postURL;
+
+                    document.getElementById('post-wrapper').appendChild(iframe);
                     return postCon;
                 }
             }else{
