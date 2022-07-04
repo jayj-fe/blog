@@ -34,12 +34,12 @@ export default {
   },
   fetchPostView ({ commit }, payload) {
     let url = '/blogAPI'+payload;
-    console.log('url');
-    console.log(url);
+    // console.log('url');
+    // console.log(url);
     return api.get(url)
     .then(res => {
-      console.log('res.data');
-      console.log(res.data);
+      // console.log('res.data');
+      // console.log(res.data);
       commit(FETCH_POST_VIEW, res.data);
     })
     .catch(error => {
