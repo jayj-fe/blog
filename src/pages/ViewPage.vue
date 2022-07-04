@@ -24,7 +24,8 @@ export default {
         
 		currentView() {
             const postCon = this.$store.state.currentView;
-            // console.log(postCon);
+            console.log('postCon');
+            console.log(postCon);
 
             if(postCon.title !== null){
                 const assetUrl = location.hostname === "localhost" ? 'http://localhost:9000/blogAPI' : '/blogAPI';
