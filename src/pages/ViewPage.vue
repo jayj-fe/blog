@@ -14,6 +14,16 @@ import { mapActions } from 'vuex';
 export default {
     name: 'ViewPage',
     props: {
+        postTit: {
+            type: String,
+            default: "",
+        },
+        
+        postDate: {
+            type: String,
+            default: "",
+        },
+
         postURL: {
             type: String,
             default: "",
@@ -24,54 +34,42 @@ export default {
         
 		currentView() {
             const postCon = this.$store.state.currentView;
-            console.log('postCon');
-            console.log(typeof postCon);
-            console.log(postCon);
+            // console.log(postCon);
 
             if(postCon.title !== null){
                 const assetUrl = location.hostname === "localhost" ? 'http://localhost:9000/blogAPI' : '/blogAPI';
 
                 if(location.hostname === "localhost"){
+
                     let fileContent = '';
 
-                    const sliceIdx = postCon.indexOf('---', 2);
-                    const postInfoText = postCon.slice(postCon.indexOf('title'), sliceIdx).replace(/(\r\n|\n|\r)/gm, "::");
-                    const postInfoArr = postInfoText.split('::');
-                    const fileInfoObj = postInfoArr.map( (ele) => {
-                        const arr = ele.split(': ');
-                        return arr[1]
-                    });
-                        
-                    // 날짜 타입으로 변환하기
-                    const postDate = fileInfoObj[2].slice(0, 10);
+                    const sliceIdx = postCon.content.indexOf('---', 2);
 
-                    if(postCon.indexOf('---', 2) !== -1){
-                        fileContent = postCon.slice(sliceIdx);
+                    if(postCon.content.indexOf('---', 2) !== -1){
+                        fileContent = postCon.content.slice(sliceIdx);
                     }else{
-                        fileContent = postCon;
+                        fileContent = postCon.content;
                     }
 
                     const converter = new showdown.Converter();
-                    let postHTML = converter.makeHtml(fileContent);
-                    postHTML = postHTML.replaceAll('/assets/', assetUrl+'/assets/');
+                    const postHTML = converter.makeHtml(fileContent);
+                    const postContent = postHTML.replaceAll('/assets/', assetUrl+'/assets/');
 
                     const currentView = {
-                        'title' : fileInfoObj[0],
-                        'author' : fileInfoObj[1],
-                        'date' : postDate,
-                        'content' : postHTML
+                        title : postCon.title,
+                        date : postCon.date,
+                        content : postContent
                     }
-
                     return currentView;
                 }else{
-                    
-                    const currentView = {
-                        'title' : null,
-                        'author' : null,
-                        'date' : null,
-                        'content' : postCon
-                    }
+                    const postHTML = postCon.content.slice(postCon.content.indexOf('<h1><a href="https://jayj-fe.github.io/blogAPI/">blogAPI</a></h1>'))
+                    const postContent = postHTML.replaceAll('/assets/', assetUrl+'/assets/');
 
+                    const currentView = {
+                        title : postCon.title,
+                        date : postCon.date,
+                        content : postContent
+                    }
                     return currentView;
                 }
             }else{
@@ -83,7 +81,24 @@ export default {
         ...mapActions([ 'fetchPostView' ]),
     },
     mounted() {
-        this.fetchPostView(this.postURL);
+        console.log(this.postTit)
+        if(this.postTit === ''){
+            const localStoragePost = JSON.parse(localStorage.getItem('currentPost'));
+            // console.log(localStoragePost);
+            this.fetchPostView(localStoragePost);
+        }else{
+            localStorage.setItem('currentPost', JSON.stringify({
+                title : this.postTit,
+                date : this.postDate,
+                url : this.postURL
+            }));
+
+            this.fetchPostView({
+                title : this.postTit,
+                date : this.postDate,
+                url : this.postURL
+            });
+        }
     }
 }
 </script>
