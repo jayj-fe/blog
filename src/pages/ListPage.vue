@@ -23,6 +23,7 @@ export default {
     ...mapActions([ 'fetchPostList' ]),
   },
   mounted() {
+      this.$store.state.currentPosts = null;
       this.fetchPostList(this.postCate);
   },
 }

@@ -38,12 +38,12 @@ export default {
       if( window.innerWidth <= 1024){
         this.toggleHeader(false);
       }
-      this.$store.state.currentPosts = null;
 
       if(_target === 'ListPage'){
         this.$router.push({ name: _target, params: { postCate: 'post' } });
       }else{
         if(this.$route.name !== _target){
+          this.$store.state.currentPosts = null;
           this.$router.push({ name: _target });
         }
       }

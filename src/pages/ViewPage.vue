@@ -25,6 +25,7 @@ export default {
 		currentView() {
             const postCon = this.$store.state.currentView;
             console.log('postCon');
+            console.log(typeof postCon);
             console.log(postCon);
 
             if(postCon.title !== null){
@@ -63,14 +64,15 @@ export default {
 
                     return currentView;
                 }else{
-                    console.log(postCon.title);
+                    
+                    const currentView = {
+                        'title' : null,
+                        'author' : null,
+                        'date' : null,
+                        'content' : postCon
+                    }
 
-                    const iframe = document.createElement('iframe');
-
-                    iframe.src = this.postURL;
-
-                    document.getElementById('post-wrapper').appendChild(iframe);
-                    return postCon;
+                    return currentView;
                 }
             }else{
                 return postCon;

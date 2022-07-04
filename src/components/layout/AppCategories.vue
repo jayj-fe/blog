@@ -22,8 +22,7 @@ export default {
       if( window.innerWidth <= 1024){
         this.toggleHeader(false);
       }
-      
-      this.$store.state.currentPosts = null;
+    
       this.$router.push({ name: 'ListPage', params: { postCate: i } });
     }
   },
