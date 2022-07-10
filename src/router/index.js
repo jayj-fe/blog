@@ -10,7 +10,7 @@ import ArchivePage from '@/pages/ArchivePage';
 
 const routes = [
   {
-    path: '/blogRenewalTest/',
+    path: '/blog/',
     name: 'Home',
     components: {
       header: AppHeader,
@@ -22,7 +22,7 @@ const routes = [
     }
   },
   {
-    path: '/blogRenewalTest/:postCate',
+    path: '/blog/:postCate',
     name: 'ListPage',
     components: {
       header: AppHeader,
@@ -35,7 +35,7 @@ const routes = [
     }
   },
   {
-    path: '/blogRenewalTest/posts/:postURL',
+    path: '/blog/posts/:postURL',
     name: 'ViewPage',
     components: {
       header: AppHeader,
@@ -48,7 +48,7 @@ const routes = [
     }
   },
   {
-    path: '/blogRenewalTest/archive',
+    path: '/blog/archive',
     name: 'ArchivePage',
     components: {
       header: AppHeader,
@@ -60,7 +60,7 @@ const routes = [
     }
   },
   {
-    path: '/blogRenewalTest/about',
+    path: '/blog/about',
     name: 'AboutPage',
     components: {
       header: AppHeader,
