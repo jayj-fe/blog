@@ -12,6 +12,12 @@
     text-align: left;
     padding-bottom:100px;
 
+    &>div{
+        h1{
+            display:none;
+        }
+    }
+
     b,strong{
         font-weight:700;
     }

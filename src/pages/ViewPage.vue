@@ -99,6 +99,7 @@ export default {
                 url : this.postURL
             });
         }
+        window.scrollTo(0,0);
     }
 }
 </script>

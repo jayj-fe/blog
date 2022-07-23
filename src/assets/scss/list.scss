@@ -64,7 +64,7 @@
 	}
 }
 
-@media all and (min-width:1024px) {
+@media all and (min-width:768px) {
     .app-list{
         &__container{
             display:flex;
@@ -73,7 +73,7 @@
 
             .list-item{
                 display:inline-block;
-                width: 270px;
+                width: calc( ( 100% - 40px ) / 2 );
                 margin-right: 20px;
 
                 &__categorie{
@@ -91,6 +91,36 @@
                 &__con{
                     font-size:15px;
                 }
+            }
+        }
+    }
+}
+
+@media all and (min-width:1150px) {
+    .app-list{
+        &__container{
+            .list-item{
+                width: calc( ( 100% - 60px ) / 3 );
+            }
+        }
+    }
+}
+
+@media all and (min-width:1350px) {
+    .app-list{
+        &__container{
+            .list-item{
+                width: calc( ( 100% - 80px ) / 4 );
+            }
+        }
+    }
+}
+
+@media all and (min-width:1600px) {
+    .app-list{
+        &__container{
+            .list-item{
+                width: calc( ( 100% - 100px ) / 5 );
             }
         }
     }
