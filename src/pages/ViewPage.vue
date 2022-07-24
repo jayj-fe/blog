@@ -83,19 +83,24 @@ export default {
     mounted() {
         if(this.postTit === ''){
             let currentUrl = window.location.href;
-            console.log(currentUrl);
+            // console.log(currentUrl);
             
             const pageRefresh = currentUrl.indexOf('%2Fpost%2F');
+            let date = null;
             if( pageRefresh > -1){
                 currentUrl = currentUrl.slice(pageRefresh + 10);
             }else{
                 currentUrl = currentUrl.slice(currentUrl.indexOf('/posts/') + 7);
             }
-            console.log(currentUrl);
+
+            // console.log(currentUrl);
+
+            date = currentUrl.slice(0, 10);
+            // console.log(date);
 
             const postData = {
                 title : null,
-                date : null,
+                date : date,
                 url : "/post/"+currentUrl
             }
 

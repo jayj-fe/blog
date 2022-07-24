@@ -53,5 +53,10 @@
             font-size:1.1rem;
             color:#9a9a9a;
         }
+
+        .post-meta a,
+        a:not(.img-hyperlink){
+            border-bottom:0;
+        }
     }
 }

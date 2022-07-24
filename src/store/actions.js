@@ -44,8 +44,14 @@ export default {
 
       if(payload.title === null){
         const con = res.data;
-        const title = con.slice(con.indexOf('title:')+7, con.indexOf('author'));
-        const date = con.slice(con.indexOf('date:')+6, con.indexOf('date:')+16);
+        
+        let title, date;
+
+        if(location.hostname === "localhost"){
+          title = con.slice(con.indexOf('title:')+7, con.indexOf('author'));
+        }else{
+          title = con.slice(con.indexOf('<title>')+7, con.indexOf('</title>'));
+        }
         
         postData = {
           title : title,
