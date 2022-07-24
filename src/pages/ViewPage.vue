@@ -81,18 +81,26 @@ export default {
         ...mapActions([ 'fetchPostView' ]),
     },
     mounted() {
-        console.log(this.postTit)
         if(this.postTit === ''){
-            const localStoragePost = JSON.parse(localStorage.getItem('currentPost'));
-            // console.log(localStoragePost);
-            this.fetchPostView(localStoragePost);
-        }else{
-            localStorage.setItem('currentPost', JSON.stringify({
-                title : this.postTit,
-                date : this.postDate,
-                url : this.postURL
-            }));
+            let currentUrl = window.location.href;
+            console.log(currentUrl);
+            
+            const pageRefresh = currentUrl.indexOf('%2Fpost%2F');
+            if( pageRefresh > -1){
+                currentUrl = currentUrl.slice(pageRefresh + 10);
+            }else{
+                currentUrl = currentUrl.slice(currentUrl.indexOf('/posts/') + 7);
+            }
+            console.log(currentUrl);
 
+            const postData = {
+                title : null,
+                date : null,
+                url : "/post/"+currentUrl
+            }
+
+            this.fetchPostView(postData);
+        }else{
             this.fetchPostView({
                 title : this.postTit,
                 date : this.postDate,

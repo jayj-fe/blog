@@ -35,18 +35,31 @@ export default {
   fetchPostView ({ commit }, payload) {
     // console.log(payload);
     let url = '/blogAPI'+payload.url;
-    // console.log('url');
     // console.log(url);
     return api.get(url)
     .then(res => {
-      // console.log('res.data');
       // console.log(res.data);
-      
-      const postData = {
-        title : payload.title,
-        date : payload.date,
-        content : res.data
+
+      let postData = {};
+
+      if(payload.title === null){
+        const con = res.data;
+        const title = con.slice(con.indexOf('title:')+7, con.indexOf('author'));
+        const date = con.slice(con.indexOf('date:')+6, con.indexOf('date:')+16);
+        
+        postData = {
+          title : title,
+          date : date,
+          content : res.data
+        }
+      }else{
+        postData = {
+          title : payload.title,
+          date : payload.date,
+          content : res.data
+        }
       }
+
       // console.log(postData);
       commit(FETCH_POST_VIEW, postData);
     })
