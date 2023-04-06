@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 
 import AppHeader from '@/components/layout/AppHeader';
 import AppFooter from '@/components/layout/AppFooter';
+import AppLayer from '@/components/layout/AppLayer';
 
 import ListPage from '@/pages/ListPage';
 import ViewPage from '@/pages/ViewPage';
@@ -13,6 +14,7 @@ const routes = [
     path: '/blog/',
     name: 'Home',
     components: {
+      layer : AppLayer,
       header: AppHeader,
       default: ListPage,
       footer: AppFooter

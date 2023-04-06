@@ -25,6 +25,8 @@ export default {
   mounted() {
       this.$store.state.currentPosts = null;
       this.fetchPostList(this.postCate);
+      
+      window.scrollTo(0,0);
   },
 }
 </script>

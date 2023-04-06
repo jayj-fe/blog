@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <router-view name="layer"/>
     <router-view name="header"/>
     <router-view v-slot="{ Component }">
         <transition name="fade">
