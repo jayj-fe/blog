@@ -27,4 +27,4 @@
 <br>
 
 ## URL
-[jayj-fe.github.io/memo-application](https://jayj-fe.github.io/Memo-Application/)
+[https://jayj-fe.github.io/blog/post](https://https://jayj-fe.github.io/blog/post/)
