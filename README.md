@@ -1,8 +1,10 @@
 # Blog Renewal
 
+Vue.js를 이용한 기술 블로그입니다.<br>
+
 ## Technology Stack
 
-- Vue.js
+- Vue.js, Axios, HTML, SCSS
 
 <br>
 

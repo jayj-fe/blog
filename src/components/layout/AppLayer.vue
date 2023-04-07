@@ -5,7 +5,7 @@
       <strong>Vue.js로 만든 블로그입니다.</strong>
 
       <p>
-        <b>node.js</b>를 이용하여 포스팅되어 있는 파일들을 json파일로 변환하고, 임의의 <a href="https://jayj-fe.github.io/blogAPI/postlist.json" target="_blank">blogAPI</a>란 사이트에 출력하고<br>
+        <b>node.js</b>를 이용하여 포스팅되어 있는 파일들을 json파일로 변환하고, 임의의 <a href="https://github.com/jayj-fe/blogAPI" target="_blank">blogAPI</a>란 사이트에 출력하고<br>
         <br>
         본 블로그에서 <b>Vue.js</b>를 이용하여 개발하고 <b>axios</b>를 이용하여 데이터를 통신, 출력하였습니다.
       </p>
