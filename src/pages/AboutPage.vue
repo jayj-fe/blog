@@ -4,8 +4,44 @@
 
     <article class="career">
       <article class="company">
+        <h3>한국일보사.</h3>
+        <p><span>Front End Developer</span>2023. 07 ~ 현재</p>
+      </article>
+
+      <article class="career-info">
+        <h4>담당업무</h4>
+        <ul class="career-info__list">
+          <li>Javascript와 SCSS를 이용하여 한국일보 사이트 유지운영</li>
+          <li>React.js와 Mui를 이용한 한국일보CMS 유지운영</li>
+          <li>Javascript, Astro.js React.js, Three.js 등을 이용한 Interactive 페이지 개발</li>
+        </ul>
+      </article>
+      
+      <article class="career-info">
+        <h4>
+          <button type="button" v-on:click="careerToggleHankookilbo">
+            주요 프로젝트
+            <font-awesome-icon v-if="careerShowHankookilbo" icon="fa-solid fa-angle-up" />
+            <font-awesome-icon v-else icon="fa-solid fa-angle-down" />
+          </button>
+        </h4>
+        <ul class="career-info__list project" v-if="careerShowHankookilbo">
+          <li><a href="https://interactive.hankookilbo.com/v/sf_novel_puberty/" target="_blank">[인터렉티브] SF소설 - 서아의 사춘기<font-awesome-icon icon="fa-solid fa-link" /></a></li>
+          <li><a href="https://interactive.hankookilbo.com/v/sewol/" target="_blank">[인터렉티브] 세월호 참사 10주기, 그날의 책임자들... 저울은 공정했을까.<font-awesome-icon icon="fa-solid fa-link" /></a></li>
+          <li><a href="https://www.hankookilbo.com/election2024" target="_blank">[특별페이지] 제22대 국회의원 총선거<font-awesome-icon icon="fa-solid fa-link" /></a></li>
+          <li><a href="https://interactive.hankookilbo.com/v/inheritance/" target="_blank">[인터렉티브] 상속게임, 쩐의 전쟁<font-awesome-icon icon="fa-solid fa-link" /></a></li>
+          <li><a href="https://interactive.hankookilbo.com/v/dementia/chapter2.html" target="_blank">[인터렉티브] 미씽, 당신이 치매에 걸린다면...<font-awesome-icon icon="fa-solid fa-link" /></a></li>
+          <li><a href="https://interactive.hankookilbo.com/v/dementia/" target="_blank">[인터렉티브] 미씽, 사라진 엄마를 찾습니다.<font-awesome-icon icon="fa-solid fa-link" /></a></li>
+          <li>한국일보 CMS 유지운영</li>
+          <li><a href="https://www.hankookilbo.com/" target="_blank">한국일보 사이트 유지운영<font-awesome-icon icon="fa-solid fa-link" /></a></li>
+        </ul>
+      </article>
+    </article>
+
+    <article class="career">
+      <article class="company">
         <h3>위트플러스.</h3>
-        <p><span>UI Developer</span>2017. 02 ~ 현재</p>
+        <p><span>UI Developer</span>2017. 02 ~ 2023. 06</p>
       </article>
 
       <article class="career-info">
@@ -98,11 +134,15 @@ export default {
   name: 'AboutPage',
   data() {
     return {
+      careerShowHankookilbo : false,
       careerShowWitplus : false,
       careerShowCidow : false
     }
   },
   methods: {
+    careerToggleHankookilbo : function(){
+      this.careerShowHankookilbo = !this.careerShowHankookilbo
+    },
     careerToggleWitplus : function(){
       this.careerShowWitplus = !this.careerShowWitplus
     },
