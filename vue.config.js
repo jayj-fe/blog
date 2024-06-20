@@ -22,6 +22,18 @@ module.exports = defineConfig({
           @import "mixins.scss";
         `
       }
+    },
+    extract: {
+      filename: 'css/[name].css?_hash=[contenthash:8]'
     }
-  }
+  },
+  chainWebpack: (config) => {
+    if (process.env.NODE_ENV === 'production') {
+      config.plugin('extract-css').tap(args => {
+        args[0].filename = 'css/[name].css?_hash=[contenthash:8]'
+        args[0].chunkFilename = 'css/[name].css?_hash=[contenthash:8]'
+        return args
+      })
+    }
+  },
 })
